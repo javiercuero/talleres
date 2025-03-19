@@ -70,26 +70,31 @@ porcent2 = 0.20                                             # se definen los por
 porcent3 = 0.10                                             # Se definen los porcentajes para los talleres
 
 # Se calcula la nota definitiva de cada parcial
-definitiva1 = parcial1 * porcent1                          # Se calcula la nota definitiva del primer parcial
-definitiva2 = parcial2 * porcent1                          # Se calcula la nota definitiva del segundo parcial
-definitiva3 = parcial3 * porcent2                          # Se calcula la nota definitiva del tercer parcial
-definitivaTaller1 = taller1 * porcent3                     # Se calcula la nota definitiva del primer taller
-definitivaTaller2 = taller2 * porcent3                     # Se calcula la nota definitiva del segundo taller
-definitivaTaller3 = taller3 * porcent3                     # Se calcula la nota definitiva del tercer taller
+definitiva1 = round(parcial1 * porcent1, 2)                         # Se calcula la nota definitiva del primer parcial
+definitiva2 = round(parcial2 * porcent1, 2)                         # Se calcula la nota definitiva del segundo parcial
+definitiva3 = round(parcial3 * porcent2, 2)                          # Se calcula la nota definitiva del tercer parcial
+definitivaTaller1 = round(taller1 * porcent3, 2)                     # Se calcula la nota definitiva del primer taller
+definitivaTaller2 = round(taller2 * porcent3, 2)                     # Se calcula la nota definitiva del segundo taller
+definitivaTaller3 = round(taller3 * porcent3, 2)                     # Se calcula la nota definitiva del tercer taller
 
 # Se calcula la nota definitiva de los parciales y talleres
 definitivaParciales = definitiva1 + definitiva2 + definitiva3
 definitivaTalleres = definitivaTaller1 + definitivaTaller2 + definitivaTaller3
 
 #se calcula la nota definitiva total
-definitivaTotal = definitivaParciales + definitivaTalleres
+definitivaTotal = round(definitivaParciales + definitivaTalleres, 2)
 
 # Se imprime la nota definitiva total
+print("_" * 90)
 print(f"La nota definitiva es de: {definitivaTotal}\n")
 print(f"La nota definitiva de los parciales es de: {definitivaParciales}")
-print(f"discriminada en: Parcial 1 -> {parcial1} ->  {definitiva1}, Parcial 2 -> {parcial2} -> {definitiva2} y Parcial 3 -> {parcial3} -> {definitiva3}\n")
+print(f"Parcial 1 \t Definitiva \t Parcial 2 \t Definitiva \t Parcial 3 \t Definitiva ")
+print("_" * 90)
+print(f"{parcial1} \t\t {definitiva1} \t\t {parcial2} \t\t {definitiva2} \t\t {parcial3} \t\t {definitiva3}\n")
 print(f"La nota definitiva de los talleres es de: {definitivaTalleres}")
-print(f"discriminada en: Taller 1 -> {taller1} -> {definitivaTaller1}, Taller 2 -> {taller2} -> {definitivaTaller2} y Taller 3 -> {taller3} -> {definitivaTaller3}\n")
+print(f"Taller 1 \t Definitiva \t Taller 2 \t Definitiva \t Taller 3 \t Definitiva ")
+print("_" * 90)
+print(f"{taller1} \t\t {definitivaTaller1} \t\t {taller2} \t\t {definitivaTaller2} \t\t {taller3} \t\t {definitivaTaller3}\n")
 
 print("Fin del programa")
 
@@ -98,7 +103,7 @@ Notas del código:'
 - Se utilizó un ciclo while para capturar los datos de los parciales y talleres, con el fin de evitar errores al ingresar los datos.
 - Se utilizó un ciclo try-except para evitar errores al ingresar los datos, en caso de que se ingrese un dato diferente a un número.
 - Se utilizó el operador de comparación f para poder ingresar variables en un string.
-- Se utilizó el operador de comparación and para poder comparar dos condiciones
+- se utiliza round para redondear los valores de las notas definitivas a dos decimales.
 - se corre debug para verificar que el código funcione correctamente.
 '''
 
