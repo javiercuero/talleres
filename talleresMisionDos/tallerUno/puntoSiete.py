@@ -1,33 +1,29 @@
 import math
-# De entrada
 
-b = float(input("Ingrese el valor de b: "))
-a = float(input("Ingrese el valor de a: "))
-c = float(input("Ingrese el valor de c: "))
+def calcularRaiz(a, b, c):                                                      # Se determina funcion para calcular raices
+     discriminante = b**2 - 4*a*c
 
-# determinar el discriminante
-discriminante = math.sqrt(b**2 - 4*a*c)
+     if discriminante < 0:                                                      # si la determinante es negativa, no hay solucion.
+          return "Error: El discriminante es negativo, no hay solución en los reales."
 
-#funcion para calcular raiz positiva
-def calcularRaizPositiva(a,b,c):
+# Se calculan las raices
+     raizPositiva = (-b + math.sqrt(discriminante)) / (2 * a)
+     raizNegativa = (-b - math.sqrt(discriminante)) / (2 * a)
 
-     if discriminante < 0:
-          print("Error: El discriminante es negativo, no hay solucion en los reales.")
-          exit()
-     return( -b + math.sqrt(discriminante)) / (2 * a)
+     return raizPositiva, raizNegativa
 
-#funcion para calcular raiz negativa
+try:
+     a = float(input("Ingrese el valor de a: "))
 
-def calcularRaiznegativa(a,b,c):
+     if a == 0:
+          print("Error: No es una ecuación cuadrática, 'a' no puede ser 0.")
+     else:
+          b = float(input("Ingrese el valor de b: "))
+          c = float(input("Ingrese el valor de c: "))
 
-     if discriminante < 0:
-          print("Error: El discriminante es negativo, no hay solucion en los reales.")
-          exit()
-     return( -b - math.sqrt(discriminante)) / (2 * a)
-# datos de prueba
-# a,b,c = 1, -3, 2
-#funciones
-raizPositiva = calcularRaizPositiva(a,b,c)
-raizNegativa = calcularRaiznegativa(a,b,c)
-#Mostrar resultados
-print(f"Las raíces son: raizPositiva={raizPositiva} y raizNegativa={raizNegativa}")
+          resultado = calcularRaiz(a, b, c)
+
+          print(f"Las raíces son: Raíz Positiva = {resultado[0]} y Raíz Negativa = {resultado[1]}")
+
+except ValueError:
+     print("Error: Ingrese un valor numérico válido.")
