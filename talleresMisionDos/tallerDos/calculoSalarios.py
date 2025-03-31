@@ -47,14 +47,12 @@ def calcularRetencionFuente(salarioDevengado, descuentoSalud, descuentoPension):
      baseRetencion = (salarioDevengado - (descuentoSalud + descuentoPension)) * 0.75 # de acuerdo a la norma, el 25% es libre de retencion.
      uvtBase = baseRetencion / uvt
 
-     uvtBase = 95
-
-     if uvtBase     <=   0:
+     if uvtBase     <=   95:
           retencion =    0
-     elif uvtBase   <=   95:
-          retencion =    (uvtBase * uvt) * 0.19
      elif uvtBase   <=   150:
-          retencion =    (uvtBase * uvt) *0.28
+          retencion =    ((uvtBase - 95) * 0.19) * uvt
+     elif uvtBase   <=   360:
+          retencion =    ((uvtBase * uvt) *0.28) * uvt
      else:
           retencion =    print (" 0 'El rango no cuenta con una tasa definida.'")
      
@@ -72,7 +70,10 @@ def calcularSalarioNeto(salario, diasTrabajados):                    # Se realiz
 
 def mostrarResultados(empleado):
 
-     print("\n" + Fore.CYAN + "=== RESULTADOS DEL CÁLCULO ===")
+     print("\n" + Fore.CYAN + "=" * 60)
+     print(Fore.CYAN + " " * 20 + "Resultado de los calculos")
+     print(Fore.CYAN + "=" * 60 + "\n")
+
 
      tabla = [
           ["Empleado", empleado["nombre"]],
@@ -91,7 +92,7 @@ def mostrarResultados(empleado):
           ]
 
      print(tabulate(tabla, headers=["Concepto", "Valor"], tablefmt="fancy_grid"))
-     print("\n" + Fore.CYAN + "==============================\n")
+     print(Fore.CYAN + "=" * 60 + "\n")
 
 def main():                                                           # Con esta funcion se ejecutara el programa.
 

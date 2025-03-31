@@ -28,4 +28,4 @@ def validarOpcion(mensaje):                                                     
           if opcion in ["si", "sí", "s", "no", "n"]:
                return opcion in ["si", "sí", "s"]
           else:
-               print(Fore.RED + "⚠ Error: Responde con 'Sí' o 'No'.")
+               print(Fore.RED + "⚠️ Error: Responde con 'Sí' o 'No'.")
