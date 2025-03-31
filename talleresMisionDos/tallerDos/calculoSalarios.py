@@ -134,7 +134,7 @@ def main():                                                           # Con esta
           mostrarResultados(empleado)                                           # Con esta linea, mostramos los resultados
 
           if not validarOpcion("¿Deseas calcular otro salario? (Sí/No): "):     # en esta linea se pregunta si el usuario desea calcular otro salario
-               print(Fore.GREEN + "👋 Gracias por usar el sistema. ¡Hasta pronto!")
+               print(Fore.GREEN + "🗸 Gracias por usar el Programa")
                break
 
 if __name__ == "__main__":
